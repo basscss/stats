@@ -2,35 +2,16 @@
 var _ = require('lodash');
 var React = require('react');
 
-/*
-  data structure:
-
-  data: [
-    { label: 'Label 1', data: [] },
-    { label: 'Label 2', data: [] },
-  ]
-
-  sub components
-  - Path
-  - Legend
-  - x-axis
-  - x-axis labels
-  - x-axis rules
-  - y-axis
-  - y-axis labels
-  - y-axis rules
-
-*/
 
 var LineGraph = React.createClass({
 
   getDefaultProps: function() {
     return {
       data: [],
-      width: 1024,
-      height: 320,
+      height: 256,
       min: false,
       max: false,
+      legend: true,
       xAxis: true,
       xAxisRules: false,
       xAxisLabels: true,
@@ -76,6 +57,8 @@ var LineGraph = React.createClass({
     // check for equal length arrays
     var styles = {
       container: {
+      },
+      inner: {
         position: 'relative',
         boxSizing: 'border-box',
         height: this.props.height,
@@ -102,22 +85,66 @@ var LineGraph = React.createClass({
     var yAxis = this.props.yAxis ? <LineGraph.YAxis /> : false;
     var yAxisRules = this.props.yAxisRules ? <LineGraph.YAxisRules rules={this.props.yAxisRules} /> : false;
     var yAxisLabels = this.props.yAxisLabels ? <LineGraph.YAxisLabels {...this.props} {...this.state} /> : false;
+    var legend = this.props.legend ? <LineGraph.Legend {...this.props} /> : false;
 
     return (
       <div style={styles.container}>
-        <div style={styles.lines}>
-          {this.props.data.map(this.renderLine)}
+        <div style={styles.inner}>
+          <div style={styles.lines}>
+            {this.props.data.map(this.renderLine)}
+          </div>
+          <div style={styles.axes}>
+            {xAxis}
+            {yAxis}
+            {yAxisRules}
+            {yAxisLabels}
+          </div>
         </div>
-        <div style={styles.axes}>
-          {xAxis}
-          {yAxis}
-          {yAxisRules}
-          {yAxisLabels}
-        </div>
+        {legend}
       </div>
     )
   }
 
+});
+
+
+LineGraph.Legend = React.createClass({
+
+  renderItem: function(item, i) {
+    var styles = {
+      span: {
+        verticalAlign: 'middle',
+      },
+      chip: {
+        width: '1em',
+        height: '1em',
+        verticalAlign: 'middle',
+        backgroundColor: item.color,
+      },
+      label: {
+        verticalAlign: 'middle',
+      }
+    };
+    return (
+      <span key={'legend-item-'+i}
+        style={styles.span}
+        className="inline-block mr2">
+        <div className="inline-block mr1" style={styles.chip} />
+        <span style={styles.label}>{item.label}</span>
+      </span>
+    )
+  },
+
+  render: function() {
+    var style = {
+      fontSize: this.props.fontSize,
+    };
+    return (
+      <div style={style} className="py1">
+        {this.props.data.map(this.renderItem)}
+      </div>
+    )
+  }
 });
 
 
@@ -227,7 +254,6 @@ LineGraph.YAxisLabels = React.createClass({
         y: (i/this.props.yAxisRules) * 100
       });
     }
-    console.log(labels);
     return (
       <div style={style}>
         {labels.map(this.renderLabel)}
@@ -272,6 +298,7 @@ LineGraph.Path = React.createClass({
     pathData += this.props.data.map(function(val, i) {
       return (i === 0 ? 'M' : 'L') + i + ' ' + (height - val);
     }).join(' ');
+
 
     return (
       <svg 

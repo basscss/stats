@@ -10,6 +10,7 @@ var HistoryTable = React.createClass({
     switch(key) {
       case 'Mix':
       case 'Uniques':
+      case 'Specificities':
         return false;
         break;
       default:
@@ -40,7 +41,7 @@ var HistoryTable = React.createClass({
           } else if (key === 'averageSpecificity' || key === 'averageRuleSize') {
             var n = item[key];
             value = n.toFixed(2);
-          } else if (key === 'mix' || key === 'uniques') {
+          } else if (key === 'mix' || key === 'uniques' || key === 'specificities') {
             value = false;
           } else {
             value = item[key];

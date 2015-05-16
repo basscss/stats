@@ -7,7 +7,7 @@ var Body = React.createClass({
 
   render: function() {
     return (
-      <body className="px2">
+      <body className="px3">
         <Header {...this.props} />
         <Stats {...this.props} />
       </body>

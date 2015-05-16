@@ -1,40 +1,45 @@
 
 var React = require('react');
 var colors = require('colors.css');
-var filesize = require('filesize');
 var LineGraph = require('./LineGraph.jsx');
 
-var SizeGraph = React.createClass({
+var RuleSizeGraph = React.createClass({
 
   render: function() {
     var data = [
       {
-        label: 'Size',
+        label: 'Average',
         data: this.props.stats.map(function(s) {
-          return s.size;
+          return s.averageRuleSize;
         }),
         color: colors.blue
       },
       {
-        label: 'Gzip Size',
+        label: 'Min',
         data: this.props.stats.map(function(s) {
-          return s.gzipSize;
+          return s.minRuleSize;
         }),
         color: colors.green
-      }
+      },
+      {
+        label: 'Max',
+        data: this.props.stats.map(function(s) {
+          return s.maxRuleSize;
+        }),
+        color: colors.red
+      },
     ];
     return (
       <div className="mb2">
-        <h3>File Size</h3>
+        <h3>Ruleset Size</h3>
         <LineGraph
           data={data}
-          min={0}
-          yAxisLabelFormat={filesize} />
+          min={0} />
       </div>
     )
   }
 
 });
 
-module.exports = SizeGraph;
+module.exports = RuleSizeGraph;
 
