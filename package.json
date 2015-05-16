@@ -1,0 +1,29 @@
+{
+  "name": "basscss-stats",
+  "version": "1.0.0",
+  "description": "Stats for Basscss",
+  "scripts": {
+    "stats": "node scripts/stats",
+    "webpack": "webpack --progress --colors",
+    "dev": "webpack-dev-server --progress --colors",
+    "start": "npm run dev"
+  },
+  "author": "Brent Jackson",
+  "license": "MIT",
+  "dependencies": {
+    "basscss": "^6.1.4",
+    "css-mixed-properties": "^1.1.0",
+    "cssnext": "^1.4.0",
+    "cssstats": "^1.6.0",
+    "file-history": "^1.0.0",
+    "filesize": "^3.1.2",
+    "json-loader": "^0.5.1",
+    "jsx-loader": "^0.13.2",
+    "lodash": "^3.8.0",
+    "node-libs-browser": "^0.5.0",
+    "react": "^0.13.3",
+    "static-site-generator-webpack-plugin": "^1.0.0",
+    "webpack": "^1.9.6",
+    "webpack-dev-server": "^1.8.2"
+  }
+}
