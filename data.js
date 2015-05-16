@@ -9,7 +9,8 @@ module.exports = {
   description: pkg.description,
   version: pkg.version,
   css: cssnext([
-      '@import "basscss";'
+      '@import "basscss";',
+      '@import "basscss-utility-headings";'
     ].join(' '), {
     compress: true,
     features: {

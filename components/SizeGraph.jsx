@@ -9,20 +9,21 @@ var SizeGraph = React.createClass({
   render: function() {
     var data = [
       {
-        label: 'Size',
+        label: 'Minified',
         data: this.props.stats.map(function(s) {
           return s.size;
         }),
         color: colors.blue
       },
       {
-        label: 'Gzip Size',
+        label: 'Gzipped',
         data: this.props.stats.map(function(s) {
           return s.gzipSize;
         }),
         color: colors.green
       }
     ];
+    var latest = this.props.stats[this.props.stats.length-1];
     return (
       <div className="mb2">
         <h3>File Size</h3>

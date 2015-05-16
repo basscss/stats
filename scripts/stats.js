@@ -39,6 +39,12 @@ function buildStats(item, i) {
   var specificities = stats.selectors.map(function(s) {
     return s.specificity_10;
   });
+  var uniques = {};
+  Object.keys(stats.aggregates).forEach(function(key) {
+    if (!stats.aggregates[key].unique) { return false }
+    uniques[key] = stats.aggregates[key];
+  });
+  /*
   var uniques = Object.keys(stats.aggregates).map(function(key) {
     val = stats.aggregates[key];
     if (!val.unique) {
@@ -54,6 +60,7 @@ function buildStats(item, i) {
   uniques = uniques.filter(function(u) {
     return u;
   });
+  */
 
   return {
     version: item.version,

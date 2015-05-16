@@ -5,8 +5,8 @@ var Header = React.createClass({
 
   render: function() {
     return (
-      <header className="py2">
-        <h1>{this.props.title}</h1>
+      <header className="py2 border-bottom">
+        <h1 className="m0">{this.props.title}</h1>
       </header>
     )
   }

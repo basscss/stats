@@ -1,0 +1,33 @@
+
+var React = require('react');
+var Row = require('./Row.jsx');
+var Col = require('./Col.jsx');
+var TotalUniqueGraph = require('./TotalUniqueGraph.jsx');
+
+var TotalUniqueGraphs = React.createClass({
+
+  renderProperty: function(p, i) {
+    return (
+      <Col key={'property-'+i} sm={6} md={4} lg={3}>
+        <TotalUniqueGraph {...this.props} property={p} height={128} />
+      </Col>
+    )
+  },
+
+  render: function() {
+    var latest = this.props.stats[this.props.stats.length-1];
+    var properties = Object.keys(latest.uniques);
+    return (
+      <div>
+        <h2>Total vs Unique Properties</h2>
+        <Row>
+          {properties.map(this.renderProperty)}
+        </Row>
+      </div>
+    )
+  }
+
+});
+
+module.exports = TotalUniqueGraphs;
+
