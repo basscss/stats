@@ -7,11 +7,9 @@ var Table = require('./Table.jsx');
 var HistoryTable = React.createClass({
 
   filterKeys: function(key) {
-    console.log(key);
     switch(key) {
       case 'Mix':
       case 'Uniques':
-        console.log('filtered out', key);
         return false;
         break;
       default:
@@ -39,6 +37,9 @@ var HistoryTable = React.createClass({
             value = item[key].length;
           } else if (key === 'size' || key === 'gzipSize') {
             value = filesize(item[key]);
+          } else if (key === 'averageSpecificity' || key === 'averageRuleSize') {
+            var n = item[key];
+            value = n.toFixed(2);
           } else if (key === 'mix' || key === 'uniques') {
             value = false;
           } else {
@@ -56,9 +57,12 @@ var HistoryTable = React.createClass({
     });
 
     return (
-      <Table
-        head={head}
-        rows={rows} />
+      <div className="h5">
+        <Table
+          head={head}
+          rows={rows}
+          wrapCell={false} />
+      </div>
     )
   }
 

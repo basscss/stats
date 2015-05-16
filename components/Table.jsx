@@ -3,6 +3,15 @@ var React = require('react');
 
 var Table = React.createClass({
 
+  getDefaultProps: function() {
+    return {
+      head: [],
+      rows: [],
+      wrapHead: true,
+      wrapCell: true,
+    }
+  },
+
 
   renderHeadRow: function(row, i) {
     return (
@@ -13,9 +22,8 @@ var Table = React.createClass({
   },
 
   renderHeaderCell: function(cell, i) {
-    return (
-      <th key={'header-cell-'+i}>{cell}</th>
-    )
+    var className = (this.props.wrapHead ? '' : 'nowrap');
+    return <th key={'header-cell-'+i} className={className}>{cell}</th>
   },
 
   renderRow: function(row, i) {
@@ -27,7 +35,8 @@ var Table = React.createClass({
   },
 
   renderCell: function(cell, i) {
-    return <td key={'cell-'+i}>{cell}</td>
+    var className = (this.props.wrapCell ? '' : 'nowrap');
+    return <td key={'cell-'+i} className={className}>{cell}</td>
   },
 
   render: function() {

@@ -12,10 +12,11 @@
   "license": "MIT",
   "dependencies": {
     "basscss": "^6.1.4",
+    "colors.css": "^2.3.0",
     "css-mixed-properties": "^1.1.0",
     "cssnext": "^1.4.0",
     "cssstats": "^1.6.0",
-    "file-history": "^1.0.0",
+    "file-history": "^1.0.1",
     "filesize": "^3.1.2",
     "json-loader": "^0.5.1",
     "jsx-loader": "^0.13.2",
