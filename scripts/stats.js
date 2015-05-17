@@ -19,9 +19,9 @@ fileHistory({
       '/basscss.min.css'
     ],
     history: archive,
-    //repo: 'twbs/bootstrap',
+    //repo: 'mrmrs/tachyons',
     //filepaths: [
-    //  '/dist/css/bootstrap.min.css'
+    //  '/css/tachyons.min.css'
     //],
     token: config.token
   }, function(history) {
@@ -93,5 +93,6 @@ function buildStats(item, i) {
 
 function write() {
   fs.writeFileSync(path.join(__dirname, '../stats.json'), JSON.stringify(results, null, 2));
+  //fs.writeFileSync(path.join(__dirname, '../tachyons.json'), JSON.stringify(results, null, 2));
 }
 

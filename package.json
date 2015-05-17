@@ -13,6 +13,7 @@
   "dependencies": {
     "basscss": "^6.1.4",
     "basscss-utility-headings": "0.0.6",
+    "colorbrewer": "0.0.2",
     "colors.css": "^2.3.0",
     "css-mixed-properties": "^1.1.0",
     "cssnext": "^1.4.0",

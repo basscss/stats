@@ -4,6 +4,7 @@ var Row = require('./Row.jsx');
 var Col = require('./Col.jsx');
 var TopStats = require('./TopStats.jsx');
 var PropertiesBar = require('./PropertiesBar.jsx');
+var PropertiesPie = require('./PropertiesPie.jsx');
 var SizeGraph = require('./SizeGraph.jsx');
 var RulesGraph = require('./RulesGraph.jsx');
 var SpecificityGraph = require('./SpecificityGraph.jsx');
@@ -20,7 +21,6 @@ var Stats = React.createClass({
     return (
       <main className="py2">
         <TopStats {...this.props} />
-        <PropertiesBar {...this.props} />
         <hr />
         <h2>Versions {this.props.stats[0].version} to {this.props.stats[this.props.stats.length-1].version}</h2>
         <Row>
@@ -52,6 +52,8 @@ var Stats = React.createClass({
         </Row>
         <hr />
         <TotalUniqueGraphs {...this.props} />
+        <hr />
+        <PropertiesPie {...this.props} />
         <hr />
         <HistoryTable {...this.props} />
       </main>

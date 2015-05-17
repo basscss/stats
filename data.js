@@ -20,10 +20,10 @@ module.exports = {
       colorRgba: false,
       customProperties: {
         variables: {
-          'font-family': '"Avenir Next", "Helvetica Neue", Helvetica, sans-serif',
-          'bold-font-weight': '600',
-          'heading-font-weight': '600',
-          'button-font-weight': '600',
+          //'font-family': '"Avenir Next", "Helvetica Neue", Helvetica, sans-serif',
+          'bold-font-weight': '500',
+          'heading-font-weight': '500',
+          'button-font-weight': '500',
           'button-font-size': 'var(--h5)',
         }
       }
