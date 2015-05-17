@@ -3,9 +3,18 @@ var React = require('react');
 
 var Col = React.createClass({
 
+  getDefaultProps: function() {
+    return {
+      margin: true,
+    }
+  },
+
   render: function() {
 
-    var classNames = ['px2', 'mb2'];
+    var classNames = [
+      'px2',
+      (this.props.margin ? 'mb2' : '')
+    ];
     var w = this.props.width;
     var sm = this.props.sm;
     var md = this.props.md;

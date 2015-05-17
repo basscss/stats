@@ -1,13 +1,14 @@
 
 var _ = require('lodash');
 var React = require('react');
-var colors = require('colors.css');
 var LineGraph = require('./LineGraph.jsx');
 
 var TotalUniqueGraph = React.createClass({
 
   render: function() {
     var property = this.props.property;
+    var colors = this.props.colors;
+    var latest = this.props.stats[this.props.stats.length-1];
     var data = [
       {
         label: 'Total',
@@ -16,7 +17,7 @@ var TotalUniqueGraph = React.createClass({
           if (!u) { return 0 }
           return u.total;
         }),
-        color: colors.blue
+        color: colors[0]
       },
       {
         label: 'Unique',
@@ -25,20 +26,30 @@ var TotalUniqueGraph = React.createClass({
           if (!u) { return 0 }
           return u.unique;
         }),
-        color: colors.green
+        color: colors[1]
       },
     ];
+    var total = latest.uniques[property].total;
+    var unique = latest.uniques[property].unique;
     var title = _.kebabCase(property).replace(/\-/g, ' ');
     return (
-      <div className="">
-        <h4>{title}</h4>
-        <LineGraph
-          {...this.props}
-          data={data}
-          yAxisRules={1}
-          legend={false}
-          height={48}
-          min={0} />
+      <div className="py1 border-bottom">
+        <h4 className="h5 lh1 m0">{title}</h4>
+        <div className="flex mxn1">
+          <div className="px1">
+            <h4 className="h1 lh1 m0">{total}/{unique}</h4>
+          </div>
+          <div className="flex-auto px1">
+            <LineGraph
+              {...this.props}
+              data={data}
+              xAxis={false}
+              yAxisRules={false}
+              legend={false}
+              height={32}
+              min={0} />
+          </div>
+        </div>
       </div>
     )
   }

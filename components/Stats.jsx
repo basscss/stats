@@ -22,7 +22,7 @@ var Stats = React.createClass({
       <main className="py2">
         <TopStats {...this.props} />
         <hr />
-        <h2>Versions {this.props.stats[0].version} to {this.props.stats[this.props.stats.length-1].version}</h2>
+        <h2 className="h5 caps">Versions {this.props.stats[0].version} to {this.props.stats[this.props.stats.length-1].version}</h2>
         <Row>
           <Col sm={6}>
             <SizeGraph {...this.props} />
@@ -41,15 +41,17 @@ var Stats = React.createClass({
         </Row>
         <hr />
         <MixedPropertiesGraph {...this.props} />
-        <hr />
-        <Row>
-          <Col sm={6}>
-            <TotalPropertiesGraph {...this.props} />
-          </Col>
-          <Col sm={6}>
-            <UniquePropertiesGraph {...this.props} />
-          </Col>
-        </Row>
+        {/*
+          <hr />
+          <Row>
+            <Col sm={6}>
+              <TotalPropertiesGraph {...this.props} />
+            </Col>
+            <Col sm={6}>
+              <UniquePropertiesGraph {...this.props} />
+            </Col>
+          </Row>
+        */}
         <hr />
         <TotalUniqueGraphs {...this.props} />
         <hr />

@@ -1,39 +1,39 @@
 
 var React = require('react');
-var colors = require('colors.css');
 var LineGraph = require('./LineGraph.jsx');
 
 var RulesGraph = React.createClass({
 
   render: function() {
+    var colors = this.props.colors;
     var data = [
       {
         label: 'Rules',
         data: this.props.stats.map(function(s) {
           return s.rules;
         }),
-        color: colors.blue
+        color: colors[0]
       },
       {
         label: 'Selectors',
         data: this.props.stats.map(function(s) {
           return s.selectors;
         }),
-        color: colors.green
+        color: colors[1]
       },
       {
         label: 'Declarations',
         data: this.props.stats.map(function(s) {
           return s.declarations;
         }),
-        color: colors.maroon
+        color: colors[2]
       },
       {
         label: 'Properties',
         data: this.props.stats.map(function(s) {
           return s.properties.length;
         }),
-        color: colors.purple
+        color: colors[3]
       },
     ];
     return (

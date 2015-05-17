@@ -1,11 +1,11 @@
 
 var React = require('react');
-var colors = require('colors.css');
 var LineGraph = require('./LineGraph.jsx');
 
 var UniquePropertiesGraph = React.createClass({
 
   render: function() {
+    var colors = this.props.colors;
     var data = [
       {
         label: 'Margin',
@@ -18,7 +18,7 @@ var UniquePropertiesGraph = React.createClass({
             s.uniques.marginLeft.unique;
           return sum;
         }),
-        color: colors.navy
+        color: colors[0]
       },
       {
         label: 'Padding',
@@ -31,7 +31,7 @@ var UniquePropertiesGraph = React.createClass({
             s.uniques.paddingLeft.unique;
           return sum;
         }),
-        color: colors.blue
+        color: colors[1]
       },
       {
         label: 'Width',
@@ -39,7 +39,7 @@ var UniquePropertiesGraph = React.createClass({
           if (!s.uniques.width) { return 0 }
           return s.uniques.width.unique || 0;
         }),
-        color: colors.aqua
+        color: colors[2]
       },
       {
         label: 'Height',
@@ -47,7 +47,7 @@ var UniquePropertiesGraph = React.createClass({
           if (!s.uniques.height) { return 0 }
           return s.uniques.height.unique || 0;
         }),
-        color: colors.teal
+        color: colors[3]
       },
       {
         label: 'Color',
@@ -55,7 +55,7 @@ var UniquePropertiesGraph = React.createClass({
           if (!s.uniques.color) { return 0 }
           return s.uniques.color.unique || 0;
         }),
-        color: colors.olive
+        color: colors[4]
       },
       {
         label: 'Background Color',
@@ -63,7 +63,7 @@ var UniquePropertiesGraph = React.createClass({
           if (!s.uniques.backgroundColor) { return 0 }
           return s.uniques.backgroundColor.unique || 0;
         }),
-        color: colors.green
+        color: colors[5]
       },
     ];
     return (

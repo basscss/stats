@@ -1,7 +1,11 @@
 
 var cssnext = require('cssnext');
-var colors = require('colors.css');
+var brewer = require('colorbrewer');
 var pkg = require('./package.json');
+
+var colorscheme = brewer.GnBu[9].reverse();
+colorscheme = brewer.Blues[9].reverse();
+colorscheme = brewer.Spectral[11].reverse();
 
 module.exports = {
   title: 'Basscss Stats',
@@ -11,7 +15,8 @@ module.exports = {
   version: pkg.version,
   css: cssnext([
       '@import "basscss";',
-      '@import "basscss-utility-headings";'
+      '@import "basscss-utility-headings";',
+      '.lh1 { line-height: 1 }',
     ].join(' '), {
     compress: true,
     features: {
@@ -20,15 +25,15 @@ module.exports = {
       colorRgba: false,
       customProperties: {
         variables: {
-          //'font-family': '"Avenir Next", "Helvetica Neue", Helvetica, sans-serif',
-          'bold-font-weight': '500',
-          'heading-font-weight': '500',
-          'button-font-weight': '500',
+          'font-family': '"Avenir Next", "Helvetica Neue", Helvetica, sans-serif',
+          'bold-font-weight': '600',
+          'heading-font-weight': '600',
+          'button-font-weight': '600',
           'button-font-size': 'var(--h5)',
         }
       }
     }
   }),
-  colors: colors,
+  colors: colorscheme,
 };
 

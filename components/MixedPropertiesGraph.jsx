@@ -1,7 +1,6 @@
 
 var _ = require('lodash');
 var React = require('react');
-var colors = require('colors.css');
 var LineGraph = require('./LineGraph.jsx');
 
 var MixedPropertiesGraph = React.createClass({
@@ -14,7 +13,7 @@ var MixedPropertiesGraph = React.createClass({
           var scores = s.mix.map(function(m) { return m.score });
           return (_.sum(scores) / scores.length);
         }),
-        color: colors.blue
+        color: this.props.colors[0]
       },
       //{
       //  label: 'Min',
@@ -30,7 +29,7 @@ var MixedPropertiesGraph = React.createClass({
           var scores = s.mix.map(function(m) { return m.score });
           return _.max(scores);
         }),
-        color: colors.red
+        color: this.props.colors[1]
       },
     ];
     var latest = this.props.stats[this.props.stats.length-1];

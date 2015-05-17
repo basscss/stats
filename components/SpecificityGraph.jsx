@@ -1,32 +1,32 @@
 
 var React = require('react');
-var colors = require('colors.css');
 var LineGraph = require('./LineGraph.jsx');
 
 var SpecificityGraph = React.createClass({
 
   render: function() {
+    var colors = this.props.colors;
     var data = [
       {
         label: 'Average',
         data: this.props.stats.map(function(s) {
           return s.averageSpecificity;
         }),
-        color: colors.blue
+        color: colors[0]
       },
       {
         label: 'Min',
         data: this.props.stats.map(function(s) {
           return s.minSpecificity;
         }),
-        color: colors.green
+        color: colors[1]
       },
       {
         label: 'Max',
         data: this.props.stats.map(function(s) {
           return s.maxSpecificity;
         }),
-        color: colors.red
+        color: colors[2]
       },
     ];
     return (

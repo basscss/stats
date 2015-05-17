@@ -1,32 +1,32 @@
 
 var React = require('react');
-var colors = require('colors.css');
 var LineGraph = require('./LineGraph.jsx');
 
 var RuleSizeGraph = React.createClass({
 
   render: function() {
+    var colors = this.props.colors;
     var data = [
       {
         label: 'Average',
         data: this.props.stats.map(function(s) {
           return s.averageRuleSize;
         }),
-        color: colors.blue
+        color: colors[0]
       },
       {
         label: 'Min',
         data: this.props.stats.map(function(s) {
           return s.minRuleSize;
         }),
-        color: colors.green
+        color: colors[1]
       },
       {
         label: 'Max',
         data: this.props.stats.map(function(s) {
           return s.maxRuleSize;
         }),
-        color: colors.red
+        color: colors[2]
       },
     ];
     return (

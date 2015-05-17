@@ -8,7 +8,7 @@ var TotalUniqueGraphs = React.createClass({
 
   renderProperty: function(p, i) {
     return (
-      <Col key={'property-'+i} sm={6} md={4} lg={3}>
+      <Col key={'property-'+i} md={6} margin={false}>
         <TotalUniqueGraph {...this.props} property={p} height={128} />
       </Col>
     )

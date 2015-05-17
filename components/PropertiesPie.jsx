@@ -1,21 +1,20 @@
 
 var _ = require('lodash');
 var React = require('react');
-var brewer = require('colorbrewer');
 var PieChart = require('./PieChart.jsx');
 
-var spectral = brewer.Spectral[11];
 
 var PropertiesPie = React.createClass({
 
   render: function() {
     var latest = this.props.stats[this.props.stats.length-1];
+    var colors = this.props.colors;
     var data = latest.propertiesBreakdown.map(function(p, i) {
       var color;
-      if (i < spectral.length) {
-        color = spectral[i];
+      if (i < colors.length) {
+        color = colors[i];
       } else {
-        color = spectral[i%spectral.length];
+        color = colors[i%colors.length];
       }
       return {
         label: _.kebabCase(p.property).replace(/\-/g, ' '),

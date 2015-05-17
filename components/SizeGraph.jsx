@@ -1,26 +1,26 @@
 
 var React = require('react');
-var colors = require('colors.css');
 var filesize = require('filesize');
 var LineGraph = require('./LineGraph.jsx');
 
 var SizeGraph = React.createClass({
 
   render: function() {
+    var colors = this.props.colors;
     var data = [
       {
         label: 'Minified',
         data: this.props.stats.map(function(s) {
           return s.size;
         }),
-        color: colors.blue
+        color: colors[0]
       },
       {
         label: 'Gzipped',
         data: this.props.stats.map(function(s) {
           return s.gzipSize;
         }),
-        color: colors.green
+        color: colors[1]
       }
     ];
     var latest = this.props.stats[this.props.stats.length-1];

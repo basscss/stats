@@ -1,33 +1,19 @@
 
 var React = require('react');
-var colors = require('colors.css');
-var brewer = require('colorbrewer');
 var StackedBar = require('./StackedBar.jsx');
-
-var spectral = brewer.Spectral[11];
 
 var PropertiesBar = React.createClass({
 
   render: function() {
     var latest = this.props.stats[this.props.stats.length-1];
-    var colorArr = Object.keys(colors)
-      .filter(function(key){
-        return key !== 'white';
-      })
-      .map(function(key) {
-        return colors[key];
-      });
+    var colors = this.props.colors;
     var data = latest.propertiesBreakdown.map(function(p, i) {
+
       var color;
-      //if (i < colorArr.length) {
-      //  color = colorArr[i];
-      //} else {
-      //  color = colorArr[i%colorArr.length];
-      //}
-      if (i < spectral.length) {
-        color = spectral[i];
+      if (i < colors.length) {
+        color = colors[i];
       } else {
-        color = spectral[i%spectral.length];
+        color = colors[i%colors.length];
       }
       return {
         label: p.property,
