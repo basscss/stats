@@ -16,19 +16,18 @@ var MixedPropertiesGraph = React.createClass({
         }),
         color: colors.blue
       },
-      {
-        label: 'Min',
-        data: this.props.stats.map(function(s) {
-          var scores = s.mix.map(function(m) { return m.score });
-          return _.min(scores);
-        }),
-        color: colors.green
-      },
+      //{
+      //  label: 'Min',
+      //  data: this.props.stats.map(function(s) {
+      //    var scores = s.mix.map(function(m) { return m.score });
+      //    return _.min(scores);
+      //  }),
+      //  color: colors.green
+      //},
       {
         label: 'Max',
         data: this.props.stats.map(function(s) {
           var scores = s.mix.map(function(m) { return m.score });
-          console.log(_.max(scores).toFixed(2));
           return _.max(scores);
         }),
         color: colors.red
@@ -45,7 +44,6 @@ var MixedPropertiesGraph = React.createClass({
         <p>Score based on mixing structure and skin properties in a single ruleset. Calculated as the ratio of structure to skin properties multiplied by the total number of properties in a ruleset. Lower is better.</p>
         <LineGraph
           data={data}
-          legend={false}
           min={0}
           yAxisLabelFormat={floatTwo} />
       </div>

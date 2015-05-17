@@ -16,7 +16,13 @@ var TotalUniqueGraphs = React.createClass({
 
   render: function() {
     var latest = this.props.stats[this.props.stats.length-1];
-    var properties = Object.keys(latest.uniques);
+    var properties = Object.keys(latest.uniques)
+      .sort(function(a, b) {
+        return latest.uniques[b].total - latest.uniques[a].total;
+      })
+      .filter(function(key) {
+        return latest.uniques[key].total > 1;
+      });
     return (
       <div>
         <h2>Total vs Unique Properties</h2>

@@ -30,11 +30,14 @@ var TotalUniqueGraph = React.createClass({
     ];
     var title = _.kebabCase(property).replace(/\-/g, ' ');
     return (
-      <div className="mb2">
-        <h3>{title}</h3>
+      <div className="">
+        <h4>{title}</h4>
         <LineGraph
           {...this.props}
           data={data}
+          yAxisRules={1}
+          legend={false}
+          height={48}
           min={0} />
       </div>
     )

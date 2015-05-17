@@ -60,7 +60,6 @@ var StackedBar = React.createClass({
         height: this.props.height
       },
     };
-    console.log('stacked bar');
 
     return (
       <div className="flex" style={styles.container}>

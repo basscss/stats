@@ -7,6 +7,8 @@ var mixedProperties = require('css-mixed-properties');
 var fileHistory = require('file-history');
 var config = require('../config.json');
 
+var archive = require('../stats.json');
+
 var history;
 var results;
 
@@ -16,6 +18,11 @@ fileHistory({
       '/css/basscss.min.css',
       '/basscss.min.css'
     ],
+    history: archive,
+    //repo: 'twbs/bootstrap',
+    //filepaths: [
+    //  '/dist/css/bootstrap.min.css'
+    //],
     token: config.token
   }, function(history) {
     results = history.map(buildStats);
