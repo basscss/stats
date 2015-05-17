@@ -7,7 +7,7 @@ var mixedProperties = require('css-mixed-properties');
 var fileHistory = require('file-history');
 var config = require('../config.json');
 
-var archive = require('../stats.json');
+var archive = require('../history.json');
 
 var history;
 var results;
@@ -19,12 +19,9 @@ fileHistory({
       '/basscss.min.css'
     ],
     history: archive,
-    //repo: 'mrmrs/tachyons',
-    //filepaths: [
-    //  '/css/tachyons.min.css'
-    //],
     token: config.token
   }, function(history) {
+    fs.writeFileSync('history.json', JSON.stringify(history));
     results = history.map(buildStats);
     write();
   });
@@ -92,7 +89,6 @@ function buildStats(item, i) {
 
 
 function write() {
-  fs.writeFileSync(path.join(__dirname, '../stats.json'), JSON.stringify(results, null, 2));
-  //fs.writeFileSync(path.join(__dirname, '../tachyons.json'), JSON.stringify(results, null, 2));
+  fs.writeFileSync(path.join(__dirname, '../stats.json'), JSON.stringify(results));
 }
 
