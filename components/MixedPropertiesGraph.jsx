@@ -40,7 +40,7 @@ var MixedPropertiesGraph = React.createClass({
     return (
       <div className="mb2">
         <h3>Mixed Properties Score</h3>
-        <p>Score based on mixing structure and skin properties in a single ruleset. Calculated as the ratio of structure to skin properties multiplied by the total number of properties in a ruleset. Lower is better.</p>
+        <p>Score based on mixing structure and skin properties in a single ruleset. Calculated as the ratio of structure to skin properties multiplied by the total number of properties in a ruleset. Lower is better. <a href="https://github.com/jxnblk/css-mixed-properties" target="_blank">Read more</a></p>
         <LineGraph
           data={data}
           min={0}

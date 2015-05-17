@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "basscss": "^6.1.4",
+    "basscss-button-link": "^1.2.3",
     "basscss-utility-headings": "0.0.6",
     "colorbrewer": "0.0.2",
     "colors.css": "^2.3.0",

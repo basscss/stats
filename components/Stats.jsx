@@ -38,8 +38,6 @@ var Stats = React.createClass({
         <TotalUniqueGraphs {...this.props} />
         <hr />
         <PropertiesPie {...this.props} />
-        <hr />
-        <HistoryTable {...this.props} />
       </main>
     )
   }

@@ -3,9 +3,8 @@ var cssnext = require('cssnext');
 var brewer = require('colorbrewer');
 var pkg = require('./package.json');
 
-var colorscheme = brewer.GnBu[9].reverse();
-colorscheme = brewer.Blues[9].reverse();
-colorscheme = brewer.Spectral[11].reverse();
+var colorscheme = brewer.Spectral[11].reverse();
+colorscheme.push(colorscheme.shift());
 
 module.exports = {
   title: 'Basscss Stats',
@@ -16,7 +15,8 @@ module.exports = {
   css: cssnext([
       '@import "basscss";',
       '@import "basscss-utility-headings";',
-      '.lh1 { line-height: 1 }',
+      '@import "basscss-button-link";',
+      '@import "app.css";',
     ].join(' '), {
     compress: true,
     features: {

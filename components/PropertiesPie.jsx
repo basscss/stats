@@ -2,6 +2,8 @@
 var _ = require('lodash');
 var React = require('react');
 var PieChart = require('./PieChart.jsx');
+var Row = require('./Row.jsx');
+var Col = require('./Col.jsx');
 
 
 var PropertiesPie = React.createClass({
@@ -25,9 +27,16 @@ var PropertiesPie = React.createClass({
     return (
       <div className="mb2">
         <h3>Properties Breakdown</h3>
-        <PieChart
-          data={data}
-          legend={16} />
+        <Row>
+          <Col lg={3} />
+          <Col lg={7}>
+            <PieChart
+              data={data}
+              threshold={0.5}
+              donut={true}
+              legend={32} />
+          </Col>
+        </Row>
       </div>
     )
   }

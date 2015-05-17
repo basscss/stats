@@ -11,6 +11,7 @@ var PieChart = React.createClass({
       threshold: 1,
       legend: 8,
       fontSize: '12px',
+      donut: false,
     }
   },
 
@@ -120,20 +121,29 @@ var PieChart = React.createClass({
         display: 'block',
       },
     };
+
     var viewBox = [0, 0, width, height].join(' ');
 
+    var donuthole = false;
+    if (this.props.donut) {
+      var r = (typeof this.props.donut === 'number') ? this.props.donut : (.625 * radius);
+      donuthole = <circle cx={radius} cy={radius} r={r} fill="white" />
+    }
+
     return (
-      <div className="flex mxn2">
-        <svg 
-          xmlns="http://www.w3.org/2000/svg"
-          className="px2"
-          viewBox={viewBox}
-          width={width}
-          height={height}
-          style={styles.svg}>
-          {data.map(this.renderPath)}
-        </svg>
-        <div className="px2">
+      <div className="flex flex-center mxn2">
+        <div className="flex-auto">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox={viewBox}
+            width={width}
+            height={height}
+            style={styles.svg}>
+            {data.map(this.renderPath)}
+            {donuthole}
+          </svg>
+        </div>
+        <div className="nowrap px2 overflow-auto">
           {data.map(this.renderLegendItem)}
         </div>
       </div>
