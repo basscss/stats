@@ -1,5 +1,6 @@
 
 var cssnext = require('cssnext');
+var colors = require('colors.css');
 var pkg = require('./package.json');
 
 module.exports = {
@@ -19,13 +20,15 @@ module.exports = {
       colorRgba: false,
       customProperties: {
         variables: {
-          'bold-font-weight': '500',
-          'heading-font-weight': '500',
-          'button-font-weight': '500',
+          'font-family': '"Avenir Next", "Helvetica Neue", Helvetica, sans-serif',
+          'bold-font-weight': '600',
+          'heading-font-weight': '600',
+          'button-font-weight': '600',
           'button-font-size': 'var(--h5)',
         }
       }
     }
-  })
+  }),
+  colors: colors,
 };
 

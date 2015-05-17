@@ -14,7 +14,7 @@ var NumberStat = React.createClass({
       }
     };
     return (
-      <div>
+      <div className="mb3">
         <div className="h1 h1-responsive bold"
           style={styles.number}>
           {this.props.number}

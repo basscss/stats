@@ -11,16 +11,16 @@ var history;
 var results;
 
 fileHistory({
-  repo: 'basscss/basscss',
-  filepaths: [
-    '/css/basscss.min.css',
-    '/basscss.min.css'
-  ],
-  token: config.token
-}, function(history) {
-  results = history.map(buildStats);
-  write();
-});
+    repo: 'basscss/basscss',
+    filepaths: [
+      '/css/basscss.min.css',
+      '/basscss.min.css'
+    ],
+    token: config.token
+  }, function(history) {
+    results = history.map(buildStats);
+    write();
+  });
 
 
 function buildStats(item, i) {
@@ -44,23 +44,18 @@ function buildStats(item, i) {
     if (!stats.aggregates[key].unique) { return false }
     uniques[key] = stats.aggregates[key];
   });
-  /*
-  var uniques = Object.keys(stats.aggregates).map(function(key) {
-    val = stats.aggregates[key];
-    if (!val.unique) {
-      return false;
-    } else {
+  var propertiesBreakdown = Object.keys(stats.declarations.byProperty)
+    .map(function(key) {
+      var prop = stats.declarations.byProperty[key];
+      var total = stats.declarations.all.length;
       return {
         property: key,
-        total: val.total,
-        unique: val.unique,
+        percentage: (prop.length / total * 100),
+        total: prop.length
       }
-    }
-  });
-  uniques = uniques.filter(function(u) {
-    return u;
-  });
-  */
+    }).sort(function(a, b) {
+      return b.percentage - a.percentage;
+    });
 
   return {
     version: item.version,
@@ -83,6 +78,7 @@ function buildStats(item, i) {
     specificities: specificities,
     uniques: uniques,
     mix: mix,
+    propertiesBreakdown: propertiesBreakdown
   }
 
 }
