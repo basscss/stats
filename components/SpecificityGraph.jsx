@@ -34,6 +34,7 @@ var SpecificityGraph = React.createClass({
         <h3>Specificity</h3>
         <LineGraph
           data={data}
+          area={true}
           min={0} />
       </div>
     )

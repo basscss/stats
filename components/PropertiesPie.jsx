@@ -25,7 +25,9 @@ var PropertiesPie = React.createClass({
     return (
       <div className="mb2">
         <h3>Properties Breakdown</h3>
-        <PieChart data={data} />
+        <PieChart
+          data={data}
+          legend={16} />
       </div>
     )
   }

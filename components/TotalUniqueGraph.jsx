@@ -47,6 +47,7 @@ var TotalUniqueGraph = React.createClass({
               yAxisRules={false}
               legend={false}
               height={32}
+              area={true}
               min={0} />
           </div>
         </div>

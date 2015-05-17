@@ -44,6 +44,7 @@ var MixedPropertiesGraph = React.createClass({
         <LineGraph
           data={data}
           min={0}
+          area={true}
           yAxisLabelFormat={floatTwo} />
       </div>
     )

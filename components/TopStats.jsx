@@ -15,9 +15,11 @@ var TopStats = React.createClass({
         <NumberStat number={s.number} label={s.label} />
         <LineGraph
           data={data}
+          xAxis={false}
           yAxisRules={false}
           legend={false}
           height={32}
+          area={true}
           min={0} />
       </Col>
     )
@@ -49,7 +51,7 @@ var TopStats = React.createClass({
       data: this.props.stats.map(function(s) {
         return s.selectors;
       }),
-      color: colors[2]
+      color: colors[1]
     });
     stats.push({
       label: 'Declarations',
@@ -57,7 +59,7 @@ var TopStats = React.createClass({
       data: this.props.stats.map(function(s) {
         return s.declarations;
       }),
-      color: colors[3]
+      color: colors[1]
     });
     stats.push({
       label: 'Properties',
@@ -65,7 +67,7 @@ var TopStats = React.createClass({
       data: this.props.stats.map(function(s) {
         return s.properties.length;
       }),
-      color: colors[4]
+      color: colors[1]
     });
     //stats.push({
     //  label: 'Average Specificity',

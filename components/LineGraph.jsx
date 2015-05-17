@@ -20,6 +20,8 @@ var LineGraph = React.createClass({
       yAxisRules: 4,
       yAxisLabels: true,
       yAxisLabelFormat: false,
+      area: false,
+      areaOpacity: 0.125,
       fontSize: '12px',
     }
   },
@@ -291,6 +293,11 @@ LineGraph.Path = React.createClass({
         strokeWidth: 2,
         strokeLinejoin: 'round',
         vectorEffect: 'non-scaling-stroke'
+      },
+      area: {
+        fill: color,
+        opacity: this.props.areaOpacity,
+        //mixBlendMode: 'multiply'
       }
     };
 
@@ -299,6 +306,16 @@ LineGraph.Path = React.createClass({
       return (i === 0 ? 'M' : 'L') + i + ' ' + (height - val);
     }).join(' ');
 
+    var area = false;
+    if (this.props.area) {
+      var areaPath = [
+        pathData,
+        'L', width, height,
+        'L0', height,
+        'z'
+      ].join(' ');
+      area = <path d={areaPath} style={styles.area} />
+    }
 
     return (
       <svg 
@@ -306,6 +323,7 @@ LineGraph.Path = React.createClass({
         viewBox={viewBox}
         preserveAspectRatio="none"
         style={styles.svg}>
+        {area}
         <path d={pathData} style={styles.path} />
       </svg>
     )

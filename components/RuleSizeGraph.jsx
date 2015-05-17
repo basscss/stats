@@ -34,6 +34,7 @@ var RuleSizeGraph = React.createClass({
         <h3>Ruleset Size</h3>
         <LineGraph
           data={data}
+          area={true}
           min={0} />
       </div>
     )
