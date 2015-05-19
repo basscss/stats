@@ -12,6 +12,7 @@ var Body = React.createClass({
         <Header {...this.props} />
         <Stats {...this.props} />
         <Footer {...this.props} />
+        <script src="ga.js"></script>
       </body>
     )
   }
