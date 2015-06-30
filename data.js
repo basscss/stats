@@ -2,16 +2,18 @@
 var cssnext = require('cssnext');
 var brewer = require('colorbrewer');
 var pkg = require('./package.json');
+var basscss = require('basscss/package.json')
 
 var colorscheme = brewer.Spectral[11].reverse();
 colorscheme.push(colorscheme.shift());
 
 module.exports = {
-  title: 'Basscss Stats',
+  title: 'Stats',
+  path: '/stats',
   stats: require('./stats.json'),
   author: pkg.author,
   description: pkg.description,
-  version: pkg.version,
+  version: basscss.version,
   css: cssnext([
       '@import "basscss";',
       '@import "basscss-utility-headings";',
