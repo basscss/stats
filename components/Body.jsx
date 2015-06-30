@@ -1,8 +1,9 @@
 
-var React = require('react');
-var Header = require('./Header.jsx');
-var Stats = require('./Stats.jsx');
-var Footer = require('./Footer.jsx');
+import React from 'react'
+import Header from 'basscss.github.io/components/PageHeader.jsx'
+import Footer from 'basscss.github.io/components/Footer.jsx'
+import { CarbonAd } from 'blk'
+import Stats from './Stats.jsx'
 
 var Body = React.createClass({
 
@@ -10,6 +11,9 @@ var Body = React.createClass({
     return (
       <body className="px3">
         <Header {...this.props} />
+        <div className='clearfix'>
+          <CarbonAd />
+        </div>
         <Stats {...this.props} />
         <Footer {...this.props} />
         <script src="ga.js"></script>

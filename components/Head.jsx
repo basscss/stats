@@ -1,5 +1,6 @@
 
-var React = require('react');
+import React from 'react'
+import css from '../app.css'
 
 var Head = React.createClass({
 
@@ -11,7 +12,7 @@ var Head = React.createClass({
         <meta name="author" content={this.props.description} />
         <meta name="author" content={this.props.author} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
+        <style dangerouslySetInnerHTML={{ __html: css }} />
       </head>
     )
   }

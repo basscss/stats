@@ -1,6 +1,16 @@
 
+@import 'basscss.github.io/css/base.css';
+
 .lh1 { line-height: 1 }
 
+#carbonads {
+  top: 0;
+  bottom: auto;
+  background-color: #fff;
+  z-index: 4;
+}
+
+/*
 #carbonads {
   font-size: 14px;
   line-height: 1.25;
@@ -43,3 +53,5 @@
     max-width: 320px;
   }
 }
+*/
+

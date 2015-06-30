@@ -16,9 +16,14 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.jsx$/, loader: 'jsx-loader' },
-      { test: /\.json$/, loader: 'json-loader' }
+      { test: /(\.js$|\.jsx$)/, loader: 'babel-loader' },
+      { test: /\.json$/, loader: 'json-loader' },
+      { test: /\.css$/, loader: 'css-loader!cssnext-loader' }
     ]
+  },
+
+  cssnext: {
+    compress: true
   },
 
   plugins: [
